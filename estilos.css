@@ -204,7 +204,9 @@ html, body {
 }
 p {
     /* font-family: 'Rock Salt', cursive, sans-serif; Añadido fallback */
-    font-family: "Bangers", serif;
+    font-family: "Slabo 27px", serif;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
     font-size: clamp(1rem, 2.5vw, 1.3rem); /* Tamaño responsive */
     letter-spacing: clamp(0.1em, 1vw, 0.3em); /* Espaciado adaptable */

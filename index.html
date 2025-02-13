@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines Day</title>
+    <link href="https://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+</head>
+<body>
+    <!-- Capa de texto -->
+    <div class="text-container">
+        <h1 class="typewrite" data-period="1000" 
+            data-type='["Holaaa", "espero que estes bien", "feliz dia", "te quiero mucho"]'>
+        </h1>
+        
+        <!-- Botón fuera del flujo de texto -->
+        <a href="carta.html" class="minimal-heart-btn">Presiona aqui</a>
+        
+        <!-- Contenedor de corazones con posición absoluta -->
+        <div class="container">
+            <div class="adjustment l1">💗</div>
+            <div class="adjustment l2">💗</div>
+            <div class="adjustment l3">💗</div>
+            <div class="adjustment l4">💗</div>
+            <div class="adjustment l5">💗</div>
+        </div>
+    </div>  
+
+    <!-- Canvas para los corazones -->
+    <canvas id="testCanvas"></canvas>
+    
+    <script src="funciones.js"></script>
+</body>
+</html>

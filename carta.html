@@ -11,8 +11,10 @@
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee+Tint&family=Concert+One&family=Kalnia+Glaze:wght@100..700&family=Lilita+One&family=Slabo+27px&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee+Tint&family=Concert+One&family=Kalnia+Glaze:wght@100..700&family=Lilita+One&family=Slabo+27px&display=swap"
+        rel="stylesheet">
 
 
 
@@ -106,7 +108,7 @@
         en el corazón
 
         cuídate
-        <br><br><br>—con cariño Aldo...
+        <br><br><br>—con cariño Aldo...🫶
         <br><br>
 
     </p>
@@ -119,65 +121,65 @@
         //     audio.play(); 
         // });
         const audio = document.getElementById('audio');
-    const playButton = document.getElementById('playButton');
-    let isPlaying = false;
-    let loopCount = 0;
-    const maxLoops = 4; // Cambia este valor para los loops deseados
+        const playButton = document.getElementById('playButton');
+        let isPlaying = false;
+        let loopCount = 0;
+        const maxLoops = 4; // Cambia este valor para los loops deseados
 
-    // Configurar el audio
-    audio.loop = false; // Desactivar loop automático
-    
-    // Controlador de reproducción
-    function togglePlayback() {
-        if (!isPlaying) {
-            audio.play()
-                .then(() => {
-                    isPlaying = true;
-                    playButton.textContent = `Playing (${maxLoops - loopCount}x left)`;
-                    playButton.classList.add('playing');
-                })
-                .catch(error => console.error('Error al reproducir:', error));
-        } else {
-            audio.pause();
-            audio.currentTime = 0;
-            resetPlayer();
+        // Configurar el audio
+        audio.loop = false; // Desactivar loop automático
+
+        // Controlador de reproducción
+        function togglePlayback() {
+            if (!isPlaying) {
+                audio.play()
+                    .then(() => {
+                        isPlaying = true;
+                        playButton.textContent = `Playing (${maxLoops - loopCount}x left)`;
+                        playButton.classList.add('playing');
+                    })
+                    .catch(error => console.error('Error al reproducir:', error));
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                resetPlayer();
+            }
         }
-    }
 
-    // Reiniciar reproductor
-    function resetPlayer() {
-        isPlaying = false;
-        loopCount = 0;
-        playButton.textContent = 'Play Music';
-        playButton.classList.remove('playing');
-    }
-
-    // Event listeners
-    playButton.addEventListener('click', togglePlayback);
-    
-    audio.addEventListener('ended', () => {
-        loopCount++;
-        
-        if (loopCount < maxLoops) {
-            audio.play();
-            playButton.textContent = `Playing (${maxLoops - loopCount}x left)`;
-        } else {
-            resetPlayer();
+        // Reiniciar reproductor
+        function resetPlayer() {
+            isPlaying = false;
+            loopCount = 0;
+            playButton.textContent = 'Play Music';
+            playButton.classList.remove('playing');
         }
-    });
 
-    audio.addEventListener('pause', () => {
-        if (isPlaying) {
-            resetPlayer();
-        }
-    });
+        // Event listeners
+        playButton.addEventListener('click', togglePlayback);
 
-    // Opcional: Reiniciar al llegar a 0
-    audio.addEventListener('timeupdate', () => {
-        if (audio.currentTime === 0 && !isPlaying) {
-            resetPlayer();
-        }
-    });
+        audio.addEventListener('ended', () => {
+            loopCount++;
+
+            if (loopCount < maxLoops) {
+                audio.play();
+                playButton.textContent = `Playing (${maxLoops - loopCount}x left)`;
+            } else {
+                resetPlayer();
+            }
+        });
+
+        audio.addEventListener('pause', () => {
+            if (isPlaying) {
+                resetPlayer();
+            }
+        });
+
+        // Opcional: Reiniciar al llegar a 0
+        audio.addEventListener('timeupdate', () => {
+            if (audio.currentTime === 0 && !isPlaying) {
+                resetPlayer();
+            }
+        });
     </script>
 </body>
 
